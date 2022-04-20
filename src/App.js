@@ -16,7 +16,7 @@ function App() {
       setImages(res.data);
     })
 
-    .catch(err => alert('error in loading content'))
+    // .catch(err => alert('error in loading content'))
   },[]);
 
   return (

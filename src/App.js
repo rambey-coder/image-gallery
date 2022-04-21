@@ -10,16 +10,21 @@ function App() {
 
   useEffect(() => {
     axios
-    .get('https://api.unsplash.com/photos/random?client_id=rsP6VfEbE6qNglBOLFV4N0P8-UZCat5ESy7C-R7kEXs&count=20')
+    .get('https://api.unsplash.com/photos/random?client_id=rsP6VfEbE6qNglBOLFV4N0P8-UZCat5ESy7C-R7kEXs&count=18')
 
     .then (res => {
       setImages(res.data);
+      // console.log(res.data);
     })
 
     // .catch(err => alert('error in loading content'))
   },[]);
 
   const [search, setSearch] = useState('')
+
+  // const filterImage = images.filter(Imgs => 
+  //   Imgs.alt.toLowerCase().includes(search.toLocaleLowerCase())
+  //   )
 
     const handleChange = (e) => {
         setSearch(e.target.value)
@@ -41,9 +46,17 @@ function App() {
     </div>
       
       <div className='general-container'>
-      {images.map(img => {
+      {
+        images
+        // .filter((i) => i.alt.toLowerCase().includes(search.toLowerCase()))
+        .map(img => {
        return ( 
-          <Images url={img.urls.thumb} key={img.id} alt={images.alt_description} />
+          <Images 
+          url={img.urls.regular} 
+          key={img.id} 
+          alt={img.alt_description}
+          name={img.username}
+          blur={img.blur_hash} />
        )
       })}
       </div>

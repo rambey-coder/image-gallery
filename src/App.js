@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './App.css';
-// import Head from './Components/Head'
 import Images from './Components/Images'
-// import Placeholder from './Components/Placeholder'
 import axios from 'axios'
 
 function App() {
@@ -14,17 +12,22 @@ function App() {
 
     .then (res => {
       setImages(res.data);
-      // console.log(res.data);
     })
 
-    // .catch(err => alert('error in loading content'))
+    .catch(err => alert('error in loading content try again in 30mins'))
   },[]);
+
 
   const [search, setSearch] = useState('')
 
-  // const filterImage = images.filter(Imgs => 
-  //   Imgs.alt.toLowerCase().includes(search.toLocaleLowerCase())
-  //   )
+  useEffect(() => {
+  
+    axios 
+    .get(`https://api.unsplash.com/search/photos?client_id=rsP6VfEbE6qNglBOLFV4N0P8-UZCat5ESy7C-R7kEXs&page=1&query=${search}`)
+    .then(res => {
+      setImages(res.data.results);
+    })
+  }, [search])
 
     const handleChange = (e) => {
         setSearch(e.target.value)
@@ -48,14 +51,12 @@ function App() {
       <div className='general-container'>
       {
         images
-        // .filter((i) => i.alt.toLowerCase().includes(search.toLowerCase()))
         .map(img => {
        return ( 
           <Images 
           url={img.urls.regular} 
-          key={img.id} 
+          keys={img.id} 
           alt={img.alt_description}
-          name={img.username}
           blur={img.blur_hash} />
        )
       })}

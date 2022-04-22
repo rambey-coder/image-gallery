@@ -74,3 +74,15 @@
     margin: auto;
     margin-top: 3rem;
 }
+
+@media screen and (max-width: 500px) {
+    .general-container {
+        grid-template-columns: repeat(2, 2fr);
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .general-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

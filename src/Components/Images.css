@@ -1,7 +1,6 @@
 .img-container {
     display: grid;
     grid-template-columns: 3fr;
-    /* grid-auto-rows: minmax(min-content, max-content); */
     width: 100%;
     height: min-content;
 }
@@ -10,4 +9,6 @@
     width: 100%;
     height: 250px;
     object-fit: cover;
+    border-radius: 5px;
 }
+

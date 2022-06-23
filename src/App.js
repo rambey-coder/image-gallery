@@ -38,7 +38,7 @@ function App() {
       
       <div className='head-container'>
         <div className='content-container'>
-            <h1>Unsplash</h1>
+            <h1>Gallery</h1>
             <p>The internet’s source of freely-usable images.</p>
             <p>Powered by creators everywhere.</p>
             <div className='search-input'>

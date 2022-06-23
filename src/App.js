@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     axios
-    .get('https://api.unsplash.com/photos/random?client_id=rsP6VfEbE6qNglBOLFV4N0P8-UZCat5ESy7C-R7kEXs&count=20')
+    .get('https://api.unsplash.com/photos/random?client_id=rsP6VfEbE6qNglBOLFV4N0P8-UZCat5ESy7C-R7kEXs&count=50')
 
     .then (res => {
       setImages(res.data);
